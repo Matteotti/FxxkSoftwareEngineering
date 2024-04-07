@@ -2,10 +2,13 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
 \HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
 \global\let\oldnewlabel\newlabel
 \gdef\newlabel#1#2{\newlabelxx{#1}#2}
 \gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
 \AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
 \let\newlabel\oldnewlabel
 \fi}
 \fi}
@@ -14,8 +17,9 @@
 \providecommand*\HyPL@Entry[1]{}
 \HyPL@Entry{0<</S/D>>}
 \providecommand \oddpage@label [2]{}
-\HyPL@Entry{1<</P(\376\377\0000)>>}
-\HyPL@Entry{2<</S/D>>}
+\HyPL@Entry{1<</S/D>>}
+\HyPL@Entry{2<</P(\376\377\0000)>>}
+\HyPL@Entry{3<</S/D>>}
 \@writefile{toc}{\contentsline {section}{1.引言}{1}{section*.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{1.1编写目的}{1}{section*.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{1.2相关背景}{1}{section*.3}\protected@file@percent }
@@ -25,25 +29,37 @@
 \@writefile{toc}{\contentsline {subsection}{2.2系统组成}{4}{section*.17}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{2.3用户特点}{4}{section*.18}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{2.4假定和约束}{4}{section*.19}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{3.需求规定}{5}{section*.20}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{3.1功能要求}{5}{section*.21}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{3.2性能要求}{5}{section*.22}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{3.3接口要求}{5}{section*.23}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{3.4界面要求}{5}{section*.24}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{4.用户场景}{6}{section*.25}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{4.0总体框架介绍}{6}{section*.26}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{4.1E-R图}{15}{section*.37}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{4.2用例图}{15}{section*.39}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{4.3流程图}{16}{section*.41}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{4.4数据流图}{17}{section*.43}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{4.5类图}{18}{section*.45}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{4.6状态图}{19}{section*.47}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{4.7时序图}{20}{section*.49}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{4.8\ CRC卡}{20}{section*.51}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{5.运行环境}{21}{section*.53}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{5.1服务端软硬件配置需求}{21}{section*.54}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{5.2客户端软硬件配置需求}{21}{section*.55}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{5.3需求变更规范}{22}{section*.56}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{5.4故障处理规范}{22}{section*.57}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{6.总结}{23}{section*.58}\protected@file@percent }
-\gdef \@abspage@last{25}
+\@writefile{toc}{\contentsline {subsection}{2.5子系统功能}{5}{section*.20}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces 子系统功能\relax }}{5}{table.caption.21}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{2.6设计和实现的约束}{5}{section*.22}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{2.7用户文档}{5}{section*.23}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{2.8术语说明}{6}{section*.24}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{3.需求规定}{7}{section*.25}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{3.1功能要求}{7}{section*.26}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{3.2用户需求}{7}{section*.27}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{3.3性能要求}{8}{section*.28}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{3.4接口要求}{8}{section*.29}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{3.5界面要求}{8}{section*.30}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{4.用户场景}{9}{section*.31}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{4.0总体框架介绍}{9}{section*.32}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{4.1E-R图}{18}{section*.43}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{4.2用例图}{18}{section*.45}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{4.3流程图}{19}{section*.47}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{4.4数据流图}{20}{section*.49}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{4.5类图}{21}{section*.51}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{4.6状态图}{22}{section*.53}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{4.7时序图}{23}{section*.55}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{4.8\ CRC卡}{23}{section*.57}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{5.运行环境}{24}{section*.59}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{5.1服务端软硬件配置需求}{24}{section*.60}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{5.2客户端软硬件配置需求}{24}{section*.61}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{5.3需求变更规范}{25}{section*.62}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{5.4故障处理规范}{25}{section*.63}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{6.验收准则}{26}{section*.64}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces 响应时间要求\relax }}{26}{table.caption.68}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{response-time}{{2}{26}{响应时间要求\relax }{table.caption.68}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces 更新时间要求\relax }}{27}{table.caption.70}\protected@file@percent }
+\newlabel{refresh-time}{{3}{27}{更新时间要求\relax }{table.caption.70}{}}
+\@writefile{toc}{\contentsline {section}{7.UI原型}{27}{section*.73}\protected@file@percent }
+\gdef \@abspage@last{33}
