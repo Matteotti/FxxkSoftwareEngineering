@@ -1,0 +1,17 @@
+@startuml admin
+class admin {
+-account
+-password
+-name
+-id
++getAccount()
++getPassword()
++getName()
++getId()
++setAccount()
++setPassword()
++setName()
++setId()
++findTheAdmin(String account, String password)
+}
+@enduml

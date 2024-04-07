@@ -1,0 +1,39 @@
+@startuml complaint
+class complaint {
+-id
+-time
+-solveTime
+-content
+-relatedDoctor
+-relatedPatient
+-relatedAdmin
+-adminResult
+-patientResult
+-adminComment
+-patientComment
++getId()
++setId()
++getTime()
++setTime()
++getSolveTime()
++setSolveTime()
++getContent()
++setContent()
++getRelatedDoctor()
++setRelatedDoctor()
++getRelatedPatient()
++setRelatedPatient()
++getRelatedAdmin()
++setRelatedAdmin()
++getAdminResult()
++setAdminResult()
++getPatientResult()
++setPatientResult()
++getAdminComment()
++setAdminComment()
++getPatientComment()
++setPatientComment()
++adminSolveComplaint(Admin admin, String result, String comment)
++patientCommentComplaint(Patient patient, String result, String comment)
+}
+@enduml

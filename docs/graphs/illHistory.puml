@@ -1,0 +1,16 @@
+@startuml illHistory
+class illHistory {
+-id
+-time
+-description
+-illness
++getId()
++setId()
++getTime()
++setTime()
++getDescription()
++setDescription()
++getIllness()
++setIllness()
+}
+@enduml

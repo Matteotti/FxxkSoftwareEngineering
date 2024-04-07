@@ -1,0 +1,32 @@
+@startuml patient
+class patient {
+-account
+-password
+-name
+-id
+-gender
+-age
+-phone
+-email
+-balance
++getAccount()
++getPassword()
++getName()
++getId()
++getGender()
++getAge()
++getPhone()
++getEmail()
++getBalance()
++setAccount()
++setPassword()
++setName()
++setId()
++setGender()
++setAge()
++setPhone()
++setEmail()
++setBalance()
++findThePatient(String account, String password)
+}
+@enduml

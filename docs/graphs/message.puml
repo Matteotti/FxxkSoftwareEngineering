@@ -1,0 +1,23 @@
+@startuml message
+class message {
+-id
+-time
+-content
+-relatedDoctor
+-relatedPatient
+-isSentFromPatient
++getId()
++setId()
++getTime()
++setTime()
++getContent()
++setContent()
++getRelatedDoctor()
++setRelatedDoctor()
++getRelatedPatient()
++setRelatedPatient()
++getIsSentFromPatient()
++setIsSentFromPatient()
++sortMessageByTime()
+}
+@enduml

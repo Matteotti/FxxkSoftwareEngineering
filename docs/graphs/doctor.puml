@@ -1,0 +1,34 @@
+@startuml doctor
+class doctor {
+-id
+-username
+-password
+-age
+-name
+-gender
+-age
+-email
+-department
+-comments
++getId()
++setId()
++getUsername()
++setUsername()
++getPassword()
++setPassword()
++getAge()
++setAge()
++getName()
++setName()
++getGender()
++setGender()
++getEmail()
++setEmail()
++getDepartment()
++setDepartment()
++getComments()
++setComments()
++findTheDoctors(String department)
++findTheDoctor(String username, String password)
+}
+@enduml

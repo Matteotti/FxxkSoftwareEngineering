@@ -1,0 +1,19 @@
+@startuml MedicalConsultation
+class MedicalConsultation {
+-consultation_id
+-patient_id
+-doctor_id
+-payment
+-ill_history
++getConsultationId()
++getPatientId()
++getDoctorId()
++getPayment()
++getIllHistory()
++setConsultationId()
++setPatientId()
++setDoctorId()
++setPayment()
++setIllHistory()
+}
+@enduml
