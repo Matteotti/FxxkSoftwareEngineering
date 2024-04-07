@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.25)  7 APR 2024 14:35
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.25)  7 APR 2024 14:49
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1106,19 +1106,13 @@ File: ./image/wenzhen-3.png Graphic file (type bmp)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-Package rerunfilecheck Warning: File `需求分析.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `需求分析.out':
-(rerunfilecheck)             Before: 584202C76C6A5132F9A46D3C802BA89E;3800
-(rerunfilecheck)             After:  0E8316DD272BF15694570E171827061F;3728.
+Package rerunfilecheck Info: File `需求分析.out' has not changed.
+(rerunfilecheck)             Checksum: 0E8316DD272BF15694570E171827061F;3728.
  ) 
 Here is how much of TeX's memory you used:
  20638 strings out of 478126
  425075 string characters out of 5853227
- 752815 words of memory out of 5000000
+ 752723 words of memory out of 5000000
  40875 multiletter control sequences out of 15000+600000
  477113 words of font info for 84 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
