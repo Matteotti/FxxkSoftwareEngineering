@@ -1,0 +1,245 @@
+{
+	"info": {
+		"_postman_id": "cf0ed9b1-b65e-4045-93fd-e1d7d9664be1",
+		"name": "管理端",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34808613"
+	},
+	"item": [
+		{
+			"name": "注册",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"account\": \"account1331\",\r\n  \"password\": \"123456\",\r\n  \"name\": \"张三\",\r\n  \"email\": \"623asd@sina.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "206.237.10.247:8080/admin/register",
+					"host": [
+						"206",
+						"237",
+						"10",
+						"247"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "登录",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "account",
+							"value": "account1331",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "206.237.10.247:8080/admin/login",
+					"host": [
+						"206",
+						"237",
+						"10",
+						"247"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "返回个人信息",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsibmFtZSI6Iue9l-aWh-adsCIsImFjY291bnQiOiJsd2oxMzMxIn0sImV4cCI6MTcxNTQ2NDAyNn0.dqe5oa8D9j1q3QStG4Z6xNlzhkL94ILzZPb-oShMKcQ"
+					}
+				],
+				"url": {
+					"raw": "206.237.10.247:8080/admin/information",
+					"host": [
+						"206",
+						"237",
+						"10",
+						"247"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"information"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改个人信息",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsibmFtZSI6Iue9l-aWh-adsCIsImFjY291bnQiOiJsd2oxMzMxIn0sImV4cCI6MTcxNTQ2NDAyNn0.dqe5oa8D9j1q3QStG4Z6xNlzhkL94ILzZPb-oShMKcQ"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"张三\",\r\n  \"id\": \"451321200402209114\",\r\n  \"gender\": \"男\",\r\n  \"age\": 20,\r\n  \"phone\": \"123456\",\r\n  \"email\": \"123456@qq.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "206.237.10.247:8080/admin/change",
+					"host": [
+						"206",
+						"237",
+						"10",
+						"247"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"change"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "邮箱验证码发送",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "206.237.10.247:8080/admin/resetpwd-mail?account=account1331",
+					"host": [
+						"206",
+						"237",
+						"10",
+						"247"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"resetpwd-mail"
+					],
+					"query": [
+						{
+							"key": "account",
+							"value": "account1331"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "管理端修改密码",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "206.237.10.247:8080/admin/resetpwd?account=account1231&vecode=23141&password=4665",
+					"host": [
+						"206",
+						"237",
+						"10",
+						"247"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"resetpwd"
+					],
+					"query": [
+						{
+							"key": "account",
+							"value": "account1231"
+						},
+						{
+							"key": "vecode",
+							"value": "23141"
+						},
+						{
+							"key": "password",
+							"value": "4665"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "101f1efe-102a-450b-b8e6-65c23d3ebbe2",
+		"name": "医生端",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34808613"
+	},
+	"item": [
+		{
+			"name": "注册",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"account\": \"lwj3331\",\r\n  \"password\": \"123456\",\r\n  \"name\": \"张三\",\r\n  \"email\": \"623asd@sina.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "206.237.10.247:8080/doctor/register",
+					"host": [
+						"206",
+						"237",
+						"10",
+						"247"
+					],
+					"port": "8080",
+					"path": [
+						"doctor",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "登录",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "account",
+							"value": "lwj3331",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "206.237.10.247:8080/doctor/login",
+					"host": [
+						"206",
+						"237",
+						"10",
+						"247"
+					],
+					"port": "8080",
+					"path": [
+						"doctor",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "返回个人信息",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsibmFtZSI6Iue9l-aWh-adsCIsImFjY291bnQiOiJsd2ozMzMxIn0sImV4cCI6MTcxNTQ2NDE3Nn0.kM1gpEnVKa8944vebrhFeZiK7zqs61chBorJdJNg1pw"
+					}
+				],
+				"url": {
+					"raw": "206.237.10.247:8080/doctor/information",
+					"host": [
+						"206",
+						"237",
+						"10",
+						"247"
+					],
+					"port": "8080",
+					"path": [
+						"doctor",
+						"information"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改个人信息",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsibmFtZSI6Iue9l-aWh-adsCIsImFjY291bnQiOiJsd2ozMzMxIn0sImV4cCI6MTcxNTQ2NDE3Nn0.kM1gpEnVKa8944vebrhFeZiK7zqs61chBorJdJNg1pw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"张三\",\r\n  \"expert\": \"专家\",\r\n  \"deno\": 1,\r\n  \"age\": 20,\r\n  \"phone\": \"123456\",\r\n  \"email\": \"123456@qq.com\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "206.237.10.247:8080/doctor/change",
+					"host": [
+						"206",
+						"237",
+						"10",
+						"247"
+					],
+					"port": "8080",
+					"path": [
+						"doctor",
+						"change"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "邮箱验证码发送",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "206.237.10.247:8080/doctor/resetpwd-mail?account=lwj3331",
+					"host": [
+						"206",
+						"237",
+						"10",
+						"247"
+					],
+					"port": "8080",
+					"path": [
+						"doctor",
+						"resetpwd-mail"
+					],
+					"query": [
+						{
+							"key": "account",
+							"value": "lwj3331"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "病人端修改密码",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "206.237.10.247:8080/doctor/resetpwd?account=lwj3331&vecode=23141&password=4665",
+					"host": [
+						"206",
+						"237",
+						"10",
+						"247"
+					],
+					"port": "8080",
+					"path": [
+						"doctor",
+						"resetpwd"
+					],
+					"query": [
+						{
+							"key": "account",
+							"value": "lwj3331"
+						},
+						{
+							"key": "vecode",
+							"value": "23141"
+						},
+						{
+							"key": "password",
+							"value": "4665"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获得医院所有科室信息",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsibmFtZSI6Iue9l-aWh-adsCIsImFjY291bnQiOiJsd2ozMzMxIn0sImV4cCI6MTcxNTQ2NDE3Nn0.kM1gpEnVKa8944vebrhFeZiK7zqs61chBorJdJNg1pw"
+					}
+				],
+				"url": {
+					"raw": "206.237.10.247:8080/department/allinfor",
+					"host": [
+						"206",
+						"237",
+						"10",
+						"247"
+					],
+					"port": "8080",
+					"path": [
+						"department",
+						"allinfor"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
