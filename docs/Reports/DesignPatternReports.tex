@@ -127,9 +127,9 @@ linkcolor=black
 \subsection*{\songti 1.5应用场景}
 \addcontentsline{toc}{subsection}{1.5应用场景}
 \begin{enumerate}
-    \item 拍卖的时候，拍卖师是观察者，价格是被观察者。拍卖师观察最高标价，然后通知给其他竞价者竞价。
-    \item 共享单车：共享单车是被观察者对象，用户是观察者对象。当有新的单车被放置或被租用时，系统会发送给用户通知。
-    \item 微信公众号：微信公众号是被观察者对象，粉丝是观察者对象。当公众号发布了新的文章或消息时，系统会发送消息给关注该公众号的粉丝。
+    \item 医生与用户之间互为观察者与被观察者对象。用户A向用户B发送消息时，用户B是观察者对象，用户A是被观察者对象。
+    \item 用户A向另一个用户B发送/回复问诊消息时，当服务器接收到此消息，会向接收方发送通知。
+    \item 接收方收到通知并且向服务器回复“准备好接收”的短消息时，服务器向接收方发送问诊消息的具体内容。
 \end{enumerate}
 
 \subsection*{\songti 1.6工业界的实际应用}
@@ -145,27 +145,6 @@ linkcolor=black
 \addcontentsline{toc}{subsection}{1.7本项目中的应用}
 本项目中，观察者模式主要运用在医生与病人的聊天室上。
 
-一个例子如下
-\begin{lstlisting}[language=Java]
-@SuppressWarnings("all")
-public class ThreadLocalUtil {
-    private static final ThreadLocal THREAD_LOCAL = new ThreadLocal();
-    public static <T> T get() {
-        return (T) THREAD_LOCAL.get();
-    }
-    public static void set(Object value) {
-        THREAD_LOCAL.set(value);
-    }
-    public static void remove() {
-        THREAD_LOCAL.remove();
-    }
-}
-\end{lstlisting}
-我们将提供线程局部变量的 ThreadLocal 包装为一个外观类，从而简化了其他类对其的使用。
-
-此外，我们还将针对数据库的操作使用观察者模式包装，将数据库操作与业务逻辑分离，使得业务逻辑代码更加清晰和可维护。
-
-一个例子如下：
 \begin{lstlisting}[language=Java]
 @Mapper
 public interface AccountMapper {
@@ -179,7 +158,6 @@ public interface AccountMapper {
     double findBalanceByPano(int pano);
 }
 \end{lstlisting}
-我们将一些必要的数据库操作包装成一个外观类，在外观类内部通过 @Select 注解指定对应的 SQL 查询语句，实现了对数据库表的操作，并将这些操作作为接口提供给其他类使用。
 
 \newpage
 \end{document}
