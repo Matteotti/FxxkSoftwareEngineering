@@ -110,8 +110,7 @@ linkcolor=black
 \subsubsection*{\songti 1.4.1\ 优点}
 \begin{itemize}
     \item \textbf{避免了紧耦合的关系}：被观察者和观察者对象之间不需要知道对方的具体实现，只
-    需要知道对方的接口
-    更加简洁和易于使用。
+    需要知道对方的接口，更加简洁和易于使用。
     \item \textbf{增加了灵活性}：由于被观察者对象并不关心具体的观察者是谁，所以在程序运行的
     过程中，可以动态地增加或者删除观察者对象
     \item \textbf{符合开闭原则}：当需要添加新的观察者时，只需要添加一个实现观察者接口的类，
@@ -144,7 +143,7 @@ linkcolor=black
 
 \subsection*{\songti 1.7本项目中的应用}
 \addcontentsline{toc}{subsection}{1.7本项目中的应用}
-本项目中，外观类主要运用在工具类和底层数据的使用上。对于一些需要频繁使用的工具类和算法，例如 ThreadLocal、Mail 和 MD5，本项目的后端选择将其集成为工具类，供其他类使用。这样可以大大简化系统代码，并很好地解耦了高级类和低级方法。
+本项目中，观察者模式主要运用在医生与病人的聊天室上。
 
 一个例子如下
 \begin{lstlisting}[language=Java]
