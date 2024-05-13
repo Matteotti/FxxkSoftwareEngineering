@@ -31,6 +31,26 @@
 \usepackage{algorithmic}
 \usepackage{changepage}% 换页
 \usepackage{listings}% 插入代码段
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+% 设置代码块样式
+\lstset{
+	basicstyle=\small\ttfamily,
+	columns=fullflexible,
+	breaklines=true,
+	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+	keywordstyle=\color{blue}\bfseries,
+	stringstyle=\color{orange},
+	commentstyle=\color{gray}\itshape,
+	frame=single,
+	rulecolor=\color{black!30},
+	backgroundcolor=\color{gray!10},
+	numbers=left,
+	numberstyle=\tiny,
+	captionpos=b,
+	escapeinside={(*@}{@*)}  % 如果需要在代码块中使用 LaTeX 命令，使用 (*@ LaTeX命令 @*)
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[left=2.50cm,right=2.50cm,top=2.80cm,bottom=2.50cm]{geometry}% 页边距设置
 \renewcommand{\baselinestretch}{1.5}% 定义行间距（1.5）
@@ -259,6 +279,127 @@ CRC卡（Class-Responsibility-Collaborator）是一种在面向对象分析建�
 \subsection*{\songti 3.3接口要求}
 \addcontentsline{toc}{subsection}{3.3接口要求}
 首先，接口应该被清晰地定义和文档化，包括输入参数、输出参数、返回值类型、异常处理等内容，以便开发人员正确地使用接口。其次，接口应该保证稳定性、一致性、安全性、可用性，同时易于使用和理解，具有良好的可读性和可维护性。其次，接口应该具有良好的扩展性和兼容性，能够方便地进行功能扩展和接口升级。最后，接口应该具有良好的性能和效率，能够快速响应用户请求，保证系统的高性能和高可用性。
+该项目采用RESTful API定义应用程序接口设计规范。RESTful API是一种基于REST（Representational State Transfer）架构风格的应用程序接口设计规范，它使用标准的HTTP方法（例如GET、POST、PUT、DELETE）和状态码来实现对资源的操作。在医疗领域的线上问诊和投诉系统中，RESTful API可以有效地支持各种操作，如创建问诊、获取问诊详情、提交投诉等。接下来将展示基于RESTful API的问诊和投诉部分的接口设计。
+\subsubsection*{\songti 3.3.1问诊接口要求}
+\addcontentsline{toc}{subsection}{3.3.1问诊接口要求}
+\begin{enumerate}
+	\item 创建问诊
+	Endpoint: POST /api/inquiries
+	请求参数：
+	\begin{itemize}
+		\item token (string): 用户访问令牌 (Authorization Header)
+		\item doctor\_id (string): 医生ID，指定用户要进行问诊的医生
+		\item symptoms (string): 症状描述，用户对自身症状的描述信息
+	\end{itemize}
+	响应：
+	\begin{itemize}
+		\item inquiry\_id (string): 新创建的问诊ID，用于唯一标识该次问诊
+		\item message (string): 问诊创建成功信息，例如："问诊已成功提交"
+	\end{itemize}
+	下面是一个示例。
+	\begin{lstlisting}[language=java]
+// example
+POST /api/inquiries
+Authorization: Bearer your_access_token_here
+Content-Type: application/json
+
+{
+	"doctor_id": "123456",
+	"symptoms": "I caught fever"
+}
+
+// response
+{
+	"inquiry_id": "789012",
+	"message": "submitted"
+}
+	\end{lstlisting}
+	\item 更新问诊状态
+	Endpoint: PUT /api/inquiries/:inquiry\_id
+	
+	请求参数：
+	\begin{itemize}
+		\item token (string): 用户访问令牌 (Authorization Header)
+		\item status (string): 更新后的问诊状态，例如 "completed" 表示问诊已完成
+	\end{itemize}
+	响应：
+	\begin{itemize}
+		\item message (string): 更新问诊状态的结果信息，例如："问诊状态已成功更新"
+	\end{itemize}
+	下面是一个示例。
+	\begin{lstlisting}[language=java]
+// 
+PUT /api/inquiries/789012
+Authorization: Bearer your_access_token_here
+Content-Type: application/json
+
+{
+	"status": "completed"
+}
+
+// 
+{
+	"message": "refershed"
+}
+
+	\end{lstlisting}
+\end{enumerate}
+
+\subsubsection*{\songti 3.3.2投诉接口要求}
+\addcontentsline{toc}{subsection}{3.3.2投诉接口要求}
+\begin{enumerate}
+	\item 创建投诉
+	POST /api/complaints
+	请求参数：
+	\begin{itemize}
+	\item \texttt{token} (string): 用户访问令牌 (Authorization Header)
+	\item \texttt{inquiry\_id} (string): 问诊ID，指明投诉所关联的问诊
+	\item \texttt{complaint\_text} (string): 投诉内容描述，用户对于问诊过程中的投诉详细描述
+	\end{itemize}
+	响应：
+	\begin{itemize}
+		\item \texttt{complaint\_id} (string): 新创建的投诉ID，用于唯一标识该投诉
+		\item \texttt{message} (string): 投诉创建成功信息，例如："投诉已成功提交"
+	\end{itemize}
+	以下是一个示例。
+	\begin{lstlisting}[language=java]
+POST /api/complaints
+Authorization: Bearer your_access_token_here
+Content-Type: application/json
+
+{
+	"inquiry_id": "123456",
+	"complaint_text": "医生态度不好，回答不清楚我的问题。"
+}
+	\end{lstlisting}
+	
+	\item 处理投诉 
+	\begin{itemize}
+		\item Endpoint: \texttt{PUT /api/complaints/:complaint\_id}
+		\item 请求参数：
+		\begin{itemize}
+			\item \texttt{token} (string): 用户访问令牌 (Authorization Header)
+			\item \texttt{status} (string): 处理状态，可以是 "resolved" 表示已解决或其他自定义状态
+		\end{itemize}
+		\item 响应：
+		\begin{itemize}
+			\item \texttt{message} (string): 处理结果信息，例如："投诉已成功处理"
+		\end{itemize}
+	\end{itemize}
+	
+	以下是一个示例。
+	
+	\begin{lstlisting}[language=java]
+		PUT /api/complaints/789012
+		Authorization: Bearer your_access_token_here
+		Content-Type: application/json
+		
+		{
+			"status": "resolved"
+		}
+	\end{lstlisting}	
+\end{enumerate}
+
 \subsection*{\songti 3.4界面要求}
 \addcontentsline{toc}{subsection}{3.4界面要求}
 首先，界面应该设计得简洁明了，易于理解和操作。同时，使用直观的图标、文字和布局，提供统一的视觉风格和操作方式。界面应该具有良好的响应性，快速响应用户的操作，且能够友好地处理用户输入错误或操作失误。加之提供及时的交互反馈，如动画效果、进度条等。主要说明问诊投诉子系统的UI原型。
