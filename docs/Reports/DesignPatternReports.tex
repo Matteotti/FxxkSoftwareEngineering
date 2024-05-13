@@ -145,19 +145,90 @@ linkcolor=black
 \addcontentsline{toc}{subsection}{1.7本项目中的应用}
 本项目中，观察者模式主要运用在医生与病人的聊天室上。
 
-\begin{lstlisting}[language=Java]
-@Mapper
-public interface AccountMapper {
-    @Update("update account set balance=#{balance} where acno=#{acno}")
-    void updateAccount(int acno, double balance);
+\begin{lstlisting}[language=Python]
+    class Observer:
+    def __init__(self, name):
+        self.name = name
+
+    def update(self, message):
+        print(f'Notification to {self.name}: {message}')
+
+
+class ChatRoom:
+    def __init__(self):
+        self.patient_list = []
+
+    def add_patient(self, patient):
+        self.patient_list.append(patient)
+
+    def remove_patient(self, patient):
+        self.patient_list.remove(patient)
+
+    def notify_all(self, message):
+        for patient in self.patient_list:
+            patient.update(message)
+
+
+class Doctor:
+    def __init__(self, name, chat_room):
+        self.name = name
+        self.chat_room = chat_room
+
+    def send_message(self, message):
+        print(f'Message sent by Dr.{self.name}: {message}')
+        self.chat_room.notify_all(message)
+
+class Subject:
+    def __init__(self):
+        self.observers = []
+
+    def add_observer(self, observer):
+        self.observers.append(observer)
+
+    def remove_observer(self, observer):
+        self.observers.remove(observer)
+
+    def notify_observers(self, message):
+        for observer in self.observers:
+            observer.update(message)
+
+class ConcreteSubject(Subject):
+    def __init__(self):
+        super().__init__()
+        self.state = None
+
+    def set_state(self, state):
+        self.state = state
+        self.notify_observers(self.state)
+
+
+if __name__ == "__main__":
+    chat_room = ChatRoom()
     
-    @Select("select * from account where pano=#{pano}")
-    Account findAccountByPano(int pano);
+    patient_1 = Observer("Patient 1")
+    patient_2 = Observer("Patient 2")
+    patient_3 = Observer("Patient 3")
     
-    @Select("select Balance from account where pano=#{pano}")
-    double findBalanceByPano(int pano);
-}
+    chat_room.add_patient(patient_1)
+    chat_room.add_patient(patient_2)
+    chat_room.add_patient(patient_3)
+    
+    doctor = Doctor("Dr.Zhao", chat_room)
+    doctor.send_message("Today's appointment \
+    will be postponed by half an hour")
+
+    chat_room.remove_patient(patient_1)
+    
+    doctor.send_message("Tomorrow's appointment may need to be earlier")
 \end{lstlisting}
+
+在这段代码里，多个类用到了观察者模式，其中：
+
+1. Observer 类：这是观察者类，也就是接收通知的对象。在这个场景中，观察者就是 Patient 实例。Observer 类有一个 update 方法，用来在接收到新的通知时做出反应。
+
+2. Subject 类：这是主题类，也就是被观察的对象。在这个场景中，Subject 就是 ChatRoom 实例。它有 add\_patient （对应 register 方法）和 remove\_patient （对应 unregister 方法）两个方法，分别用于添加和删除观察者。此外，它还有一个 notify\_all 方法，这个方法遍历其所有的观察者，并调用他们各自的 update 方法，以此来发送通知。
+
+3. Doctor 类：在这个场景中，Doctor 是触发通知的对象。他通过 send\_message 方法发布新的消息，然后 ChatRoom（作为被观察者）会将这个消息广播给所有的观察者 (也就是 Patient 实例)。
 
 \newpage
 \end{document}
