@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "0c18e008-d2af-45eb-b52a-36382f95b59c",
+		"name": "病人端",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34808613"
+	},
+	"item": [
+		{
+			"name": "注册",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"account\": \"aaaa1231\",\r\n  \"password\": \"123456\",\r\n  \"name\": \"张三\",\r\n  \"email\": \"623asd@sina.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "206.237.10.247:8080/patient/register",
+					"host": [
+						"206",
+						"237",
+						"10",
+						"247"
+					],
+					"port": "8080",
+					"path": [
+						"patient",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "登录",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "account",
+							"value": "aaaa1231",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "206.237.10.247:8080/patient/login",
+					"host": [
+						"206",
+						"237",
+						"10",
+						"247"
+					],
+					"port": "8080",
+					"path": [
+						"patient",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "返回个人信息",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsibmFtZSI6Iue9l-aWh-adsCIsImFjY291bnQiOiJsd2oxMjMxIn0sImV4cCI6MTcxNTQ2Mjc0NH0.uAYuCXZl0d9l615BMYsruL24auf9Hne2zkj5-N_G3IU"
+					}
+				],
+				"url": {
+					"raw": "206.237.10.247:8080/patient/information",
+					"host": [
+						"206",
+						"237",
+						"10",
+						"247"
+					],
+					"port": "8080",
+					"path": [
+						"patient",
+						"information"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改个人信息",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsibmFtZSI6Iue9l-aWh-adsCIsImFjY291bnQiOiJsd2oxMjMxIn0sImV4cCI6MTcxNTQ2Mjc0NH0.uAYuCXZl0d9l615BMYsruL24auf9Hne2zkj5-N_G3IU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"张三\",\r\n  \"id\": \"451321200402209114\",\r\n  \"gender\": \"男\",\r\n  \"age\": 20,\r\n  \"phone\": \"123456\",\r\n  \"email\": \"123456@qq.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/patient/change",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"patient",
+						"change"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "邮箱验证码发送",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/patient/resetpwd-mail?account=aaaa1231",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"patient",
+						"resetpwd-mail"
+					],
+					"query": [
+						{
+							"key": "account",
+							"value": "aaaa1231"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "病人端修改密码",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/patient/resetpwd?account=aaaa1231&vecode=23141&password=4665",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"patient",
+						"resetpwd"
+					],
+					"query": [
+						{
+							"key": "account",
+							"value": "aaaa1231"
+						},
+						{
+							"key": "vecode",
+							"value": "23141"
+						},
+						{
+							"key": "password",
+							"value": "4665"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
