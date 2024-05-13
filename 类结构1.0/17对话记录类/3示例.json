@@ -1,0 +1,20 @@
+[
+    {
+        "dino": 1,
+        "dono": 1,
+        "pano": 3,
+        "file": "classpath:data/dialog/1_林杏_王五.txt"
+    },
+    {
+        "dino": 2,
+        "dono": 2,
+        "pano": 1,
+        "file": "classpath:data/dialog/2_吴伦_张三.txt"
+    },
+    {
+        "dino": 3,
+        "dono": 1,
+        "pano": 1,
+        "file": "classpath:data/dialog/3_林杏_张三.txt"
+    }
+]
