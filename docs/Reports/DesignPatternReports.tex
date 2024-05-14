@@ -224,11 +224,24 @@ if __name__ == "__main__":
 
 在这段代码里，多个类用到了观察者模式，其中：
 
-1. Observer 类：这是观察者类，也就是接收通知的对象。在这个场景中，观察者就是 Patient 实例。Observer 类有一个 update 方法，用来在接收到新的通知时做出反应。
+1. Observer 类：这是观察者类，在这段代码中，角色由 Patient 扮演。它有一个 update 方法，这个方法在收到通知时被调用，并打印出通知信息。换言之，每个 Patient 都是观察者，当有新的消息来临时，他们扮演了接收并响应通知的角色，此过程是自动进行的。
 
-2. Subject 类：这是主题类，也就是被观察的对象。在这个场景中，Subject 就是 ChatRoom 实例。它有 add\_patient （对应 register 方法）和 remove\_patient （对应 unregister 方法）两个方法，分别用于添加和删除观察者。此外，它还有一个 notify\_all 方法，这个方法遍历其所有的观察者，并调用他们各自的 update 方法，以此来发送通知。
+2. ChatRoom 类：这个类是被观察的主题，也是消息发布源。它维护了一个 Patient 列表，代表当前聊天室中的所有观察者。 ChatRoom 类有两个重要方法，add\_patient 和 remove\_patient ，分别用于添加新的观察者和删除退出聊天室的观察者。此外，ChatRoom 类还有一个 notify\_all 方法，当医生通过聊天室发布了消息， notify\_all 方法就会遍历所有注册在聊天室内的 Patient （观察者），调用他们的 update 方法，以此将消息通知给每一个观察者。
 
-3. Doctor 类：在这个场景中，Doctor 是触发通知的对象。他通过 send\_message 方法发布新的消息，然后 ChatRoom（作为被观察者）会将这个消息广播给所有的观察者 (也就是 Patient 实例)。
+3. Doctor 类：代表了来自观察者模式中的系统或事件源，他们是消息的初始发送者。医生通过调用 send\_message 方法在聊天室中发布消息。此动作引发 ChatRoom（作为被观察者）将此消息广播到所有注册过的观察者 (也就是 Patient 实例)。
 
+总结来说，这段代码的不同部分分别对应了观察者模式的重要组成部分：一个或多个观察者（Patient），一个被观察者（ChatRoom），以及一个事件源（Doctor）。当事件源发出事件（比如发送一条消息）时，观察者会自动接收并处理这个事件。
+
+在观察者模式中，医生（Doctor 实例）发送一条消息后的流程如下：
+
+医生实例调用 send\_message 方法，该方法接收一个消息作为参数。在这个方法内部，首先会打印出医生发送的消息。
+
+接着，医生实例会通过 self.chat\_room.notify\_all(message) 命令，引发聊天室（ChatRoom 实例，也就是被观察者）向所有注册的观察者（也就是 Patient 实例）发布通知。
+
+在 ChatRoom 实例的 notify\_all 方法中，会遍历其维护的所有观察者列表，也就是所有的 Patient 实例，然后对每一个 Patient 实例调用它的 update 方法。
+
+update 方法会接收一个消息作为参数，在该方法内部，会打印出收到的通知（也就是医生发送的消息）。
+
+因此，每一个注册在聊天室的 Patient 实例，都会接收并打印出医生发送的消息。
 \newpage
 \end{document}

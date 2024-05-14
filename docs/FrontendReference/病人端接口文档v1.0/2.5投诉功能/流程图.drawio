@@ -1,0 +1,178 @@
+<mxfile host="65bd71144e">
+    <diagram id="X5SzS_FeevJv-DkIXQUU" name="第 1 页">
+        <mxGraphModel dx="930" dy="659" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="193" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;病人端&lt;/font&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="194" value="开始" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="40" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="195" value="" style="endArrow=classic;html=1;fontSize=20;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=1;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="199.5" y="80" as="sourcePoint"/>
+                        <mxPoint x="199.5" y="120" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="196" value="导航页面" style="rounded=1;whiteSpace=wrap;html=1;fontSize=20;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="120" width="99.75" height="38.75" as="geometry"/>
+                </mxCell>
+                <mxCell id="197" value="" style="endArrow=classic;html=1;fontSize=20;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="199.5" y="158.75" as="sourcePoint"/>
+                        <mxPoint x="200" y="196.25" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="198" value="前端" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" parent="1" vertex="1">
+                    <mxGeometry x="140" y="163.75" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="199" value="点击" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="163.75" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="200" value="投诉" style="rounded=1;whiteSpace=wrap;html=1;fontSize=20;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="200" width="80" height="38.75" as="geometry"/>
+                </mxCell>
+                <mxCell id="201" value="" style="endArrow=classic;html=1;fontSize=20;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=1;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="199" y="238.75" as="sourcePoint"/>
+                        <mxPoint x="199" y="278.75" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="202" value="投诉页面" style="rounded=1;whiteSpace=wrap;html=1;fontSize=20;" parent="1" vertex="1">
+                    <mxGeometry x="149.63" y="280.63" width="100.12" height="38.75" as="geometry"/>
+                </mxCell>
+                <mxCell id="203" value="进入" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" parent="1" vertex="1">
+                    <mxGeometry x="140" y="238.75" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="204" value="" style="endArrow=classic;html=1;fontSize=20;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=1;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="319.38" as="sourcePoint"/>
+                        <mxPoint x="200" y="359.38" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="205" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;投诉&lt;/font&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="360" width="80.25" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="206" value="" style="endArrow=classic;html=1;fontSize=20;strokeWidth=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="205" target="207" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="300" y="430" as="sourcePoint"/>
+                        <mxPoint x="270" y="430" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="207" value="结束" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="438.75" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="208" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;病人端&lt;/font&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+                    <mxGeometry x="360.5" y="40" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="209" value="开始" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="40" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="210" value="" style="endArrow=classic;html=1;fontSize=20;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=1;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="519.5" y="80" as="sourcePoint"/>
+                        <mxPoint x="519.5" y="120" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="212" value="" style="shape=flexArrow;endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="590.5" y="139.25" as="sourcePoint"/>
+                        <mxPoint x="700" y="139.375" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="218" value="获取医生列表" style="rounded=1;whiteSpace=wrap;html=1;fontSize=20;" parent="1" vertex="1">
+                    <mxGeometry x="450.13" y="120" width="139.75" height="38.75" as="geometry"/>
+                </mxCell>
+                <mxCell id="220" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;获得就诊过的所有医生接口&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="700" y="100" width="90" height="77.18" as="geometry"/>
+                </mxCell>
+                <mxCell id="221" value="" style="endArrow=classic;html=1;fontSize=20;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=1;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="519" y="158.75" as="sourcePoint"/>
+                        <mxPoint x="519" y="198.75" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="222" value="选择医生" style="rounded=1;whiteSpace=wrap;html=1;fontSize=20;" parent="1" vertex="1">
+                    <mxGeometry x="469.75" y="198.75" width="100" height="38.75" as="geometry"/>
+                </mxCell>
+                <mxCell id="223" value="前端" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" parent="1" vertex="1">
+                    <mxGeometry x="460.25" y="168.75" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="224" value="" style="endArrow=classic;html=1;fontSize=20;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=1;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="520.25" y="237.5" as="sourcePoint"/>
+                        <mxPoint x="520.25" y="277.5" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="228" value="" style="endArrow=classic;html=1;fontSize=20;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" target="230" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="520.38" y="400" as="sourcePoint"/>
+                        <mxPoint x="580" y="420" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="230" value="开始等待" style="rounded=1;whiteSpace=wrap;html=1;fontSize=20;" parent="1" vertex="1">
+                    <mxGeometry x="469.75" y="438.75" width="100" height="38.75" as="geometry"/>
+                </mxCell>
+                <mxCell id="239" value="病人投诉流程" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="280" y="600" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="240" value="填写投诉内容" style="rounded=1;whiteSpace=wrap;html=1;fontSize=20;" parent="1" vertex="1">
+                    <mxGeometry x="450.75" y="280.63" width="139.75" height="38.75" as="geometry"/>
+                </mxCell>
+                <mxCell id="241" value="" style="endArrow=classic;html=1;fontSize=20;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=1;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="519.25" y="320" as="sourcePoint"/>
+                        <mxPoint x="519.25" y="360" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="242" value="前端" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" parent="1" vertex="1">
+                    <mxGeometry x="460.25" y="319.38" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="243" value="点击" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" parent="1" vertex="1">
+                    <mxGeometry x="520.25" y="319.38" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="244" value="提交投诉" style="rounded=1;whiteSpace=wrap;html=1;fontSize=20;" parent="1" vertex="1">
+                    <mxGeometry x="470.57" y="361.25" width="100.12" height="38.75" as="geometry"/>
+                </mxCell>
+                <mxCell id="246" value="" style="endArrow=classic;html=1;fontSize=20;strokeWidth=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="519" y="480" as="sourcePoint"/>
+                        <mxPoint x="519.2499999999999" y="518.75" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="247" value="" style="shape=flexArrow;endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="570.69" y="380.13" as="sourcePoint"/>
+                        <mxPoint x="680.19" y="380.255" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="248" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;提交投诉接口&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="349.38" width="100" height="67.97" as="geometry"/>
+                </mxCell>
+                <mxCell id="249" value="......" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="519.38" width="80" height="40.62" as="geometry"/>
+                </mxCell>
+                <mxCell id="251" value="" style="endArrow=classic;html=1;fontSize=20;strokeWidth=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="520.25" y="560" as="sourcePoint"/>
+                        <mxPoint x="520.5" y="598.75" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="252" value="得到结果" style="rounded=1;whiteSpace=wrap;html=1;fontSize=20;" parent="1" vertex="1">
+                    <mxGeometry x="470.69" y="601.25" width="100" height="38.75" as="geometry"/>
+                </mxCell>
+                <mxCell id="253" value="" style="endArrow=classic;html=1;fontSize=20;strokeWidth=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="519.38" y="640" as="sourcePoint"/>
+                        <mxPoint x="519.255" y="678.75" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="254" value="结束" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;fontSize=20;" parent="1" vertex="1">
+                    <mxGeometry x="479.75" y="680" width="80" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
