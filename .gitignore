@@ -25,6 +25,7 @@
 
 # Output files
 **/*.pdf
+!/docs/FrontendReference/*.pdf
 
 # Backup files
 *~
