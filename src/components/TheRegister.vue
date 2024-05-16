@@ -190,5 +190,6 @@ button:hover {
   height: 100%;
   padding: 20% 0;
   width: 100%;
+    color: #000000;
 }
 </style>
