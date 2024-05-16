@@ -2,6 +2,7 @@
 import UserInfoTable from '../components/UserInfo.vue'
 import HospitalInfoButton from '../components/HospitalInfoButton.vue'
 import QueryComplaintButton from "../components/QueryComplaintButton.vue";
+import MedicalInsuranceButton from '../components/MedicalInsuranceButton.vue';
 </script>
 
 <template>
@@ -10,6 +11,7 @@ import QueryComplaintButton from "../components/QueryComplaintButton.vue";
             主页面
             <HospitalInfoButton />
             <QueryComplaintButton/>
+            <MedicalInsuranceButton />
             <UserInfoTable />
         </div>
     </main>

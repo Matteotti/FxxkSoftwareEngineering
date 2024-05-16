@@ -5,6 +5,7 @@ import RegisterView from '../views/RegisterView.vue'
 import HomeView from '../views/HomeView.vue'
 import HospitalInfo from '../views/HospitalInfo.vue'
 import QueryComplaint from "../views/QueryComplaintView.vue"
+import MedicalInsurance from '../views/MedicalInsurance.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,11 @@ const router = createRouter({
       path: '/home/queryComplaint',
       name: 'queryComplaint',
       component: QueryComplaint
+    },
+    {
+      path: '/home/medicalInsurance',
+      name: 'MedicalInsurance',
+      component: MedicalInsurance
     }
   ]
 })
