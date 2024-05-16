@@ -11,9 +11,9 @@ const queryMedicalInsurance = () => {
     let jwtData = window.localStorage.getItem("jwtData");
     axios({
         method: "get",
-        url: "/accout/balance",
+        url: "/account/balance",
         headers: {
-            'Authorization': `Bearer ${jwtData}`
+            'Authorization': `${jwtData}`
         },
         responseType: 'json',
         responseEncoding: 'utf-8'
@@ -23,7 +23,7 @@ const queryMedicalInsurance = () => {
         if (code == 0) {
             alert("查询成功，余额为" + res.data["data"]);
         } else {
-            alert("查询失败，" + message);
+            alert("查询失败，错误：" + message);
         }
     }, err => {
         alert("网络环境故障，请稍后重试" + err);

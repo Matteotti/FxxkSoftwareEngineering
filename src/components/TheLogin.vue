@@ -57,7 +57,6 @@ const login = () => {
         console.log(typeof (code));
         if (code == 0) {
             window.localStorage.setItem("jwtData", res.data["data"]);
-            alert(res.data["data"]);
             setTimeout(() => window.location.href = "/home", 1000);
         }
         else {
