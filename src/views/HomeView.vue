@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import UserInfoTable from '../components/UserInfo.vue'
 import HospitalInfoButton from '../components/HospitalInfoButton.vue'
+import QueryComplaintButton from "../components/QueryComplaintButton.vue";
 </script>
 
 <template>
@@ -8,6 +9,7 @@ import HospitalInfoButton from '../components/HospitalInfoButton.vue'
         <div>
             主页面
             <HospitalInfoButton />
+            <QueryComplaintButton/>
             <UserInfoTable />
         </div>
     </main>
