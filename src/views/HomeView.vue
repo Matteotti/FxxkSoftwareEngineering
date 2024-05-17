@@ -4,6 +4,8 @@ import HospitalInfoButton from '../components/HospitalInfoButton.vue'
 import QueryComplaintButton from "../components/QueryComplaintButton.vue";
 import MakeComplaintButton from "../components/MakeComplaintButton.vue"
 import MedicalInsuranceButton from '../components/MedicalInsuranceButton.vue';
+import ReserveButton from '@/components/ReserveButton.vue';
+import ReserveRecordButton from '@/components/ReserveRecordButton.vue';
 </script>
 
 <template>
@@ -15,6 +17,8 @@ import MedicalInsuranceButton from '../components/MedicalInsuranceButton.vue';
             <QueryComplaintButton/>
             <MedicalInsuranceButton />
             <UserInfoTable />
+            <ReserveButton />
+            <ReserveRecordButton />
         </div>
     </main>
 </template>
