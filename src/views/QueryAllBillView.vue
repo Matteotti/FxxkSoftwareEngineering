@@ -2,56 +2,52 @@
 import { useRoute } from 'vue-router';
 import BackToHomeButton from '../components/BackToHomeButton.vue';
 import label_input from './LabelInput.vue';
-import { reactive, ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { md5 } from 'js-md5';
 import axios from 'axios';
 axios.defaults.baseURL = "/api"
-const allBillResult = ref(null); // 定义一个ref对象用于储存结果
-const queryAllBill = () => {
-    let jwtData = window.localStorage.getItem("jwtData");
-    axios({
-        method: "get",
-        url: "/bill/findbypano",
-        headers: {
-            'Authorization': `${jwtData}`
-        },
-        responseType: 'json',
-        responseEncoding: 'utf-8'
-    }).then(res => {
-        var code = res.data["code"];
-        var message = res.data["message"];
-        if (code == 0) {
-            var totalNumber = res.data["data"]["total"];
-            var items = res.data["data"]["items"];
-
-            // 把需要的信息储存到Result中
-            allBillResult.value = items.map(item => ({
-                bino: item.bino,
-                type: item.type,
-                name: item.name,
-                num: item.num,
-                describe: item.describe,
-                cost: item.cost,
-                flag: item.flag,
-                time: item.time
-            }));
-            alert("Success, total = " + totalNumber);
-        } else {
-            alert("查询失败, 错误:" + message);
-        }
-    }, err => {
-        alert("网络环境故障，请稍后重试" + err);
-        console.log(err);
-    });
-    // return complaintResult;
+interface BillRecord {
+    bino: number;
+    type: string;
+    name: string;
+    num: number;
+    describe: string;
+    cost: number;
+    flag: string;
+    time: string;
 }
+const allBillResult = ref<BillRecord[]>([]);
+const getBillRecords = async () => {
+    const jwt = window.localStorage.getItem("jwtData");
+    const allBillRes = await axios.get("/bill/findbypano", {
+        headers: {
+            authorization: jwt,
+        },
+    });
+    if (allBillRes.data.code === 0) {
+        allBillResult.value = allBillRes.data.data.items;
+    } else {
+        console.error(allBillRes.data.message);
+    }
+};
+onMounted(getBillRecords);
 </script>
 
 <template>
   <main>
     <div>
-      <QueryAllBill /> all bill是nhfjhcjhgcj <br>
-      <!-- 在这里面加 -->
+      <QueryAllBill /> 所有缴费记录如下： <br>
+      <div v-for="record in allBillResult":key = "record.bino">
+        <hr />
+        <div>缴费编号: {{ record.bino }}</div>
+        <div>缴费类型: {{ record.type }}</div>
+        <div>缴费名称: {{ record.name }}</div>
+        <div>缴费数量: {{ record.num }}</div>
+        <div>缴费描述: {{ record.describe }}</div>
+        <div>缴费金额: {{ record.cost }}</div>
+        <div>缴费状态: {{ record.flag }}</div>
+        <div>缴费时间: {{ record.time }}</div>
+      </div>
       <BackToHomeButton />
     </div>
   </main>

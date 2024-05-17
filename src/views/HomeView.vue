@@ -8,7 +8,9 @@ import ReserveButton from '@/components/ReserveButton.vue';
 import ReserveRecordButton from '@/components/ReserveRecordButton.vue';
 
 import { ref } from 'vue';
-
+import QueryAllBillButton from "@/components/QueryAllBillButton.vue";
+import QueryUnpaidBillButton from "@/components/QueryUnpaidBillButton.vue";
+import PayBillButton from "@/components/PayBillButton.vue";
 const idRatio = ref(window.localStorage.getItem("idRatio"));
 
 </script>
@@ -23,9 +25,11 @@ const idRatio = ref(window.localStorage.getItem("idRatio"));
             <UserInfoTable v-if="idRatio === 'patient'" />
             <ReserveButton v-if="idRatio === 'patient'" />
             <ReserveRecordButton v-if="idRatio === 'patient'" />
-
-            <!-- <MakeComplaintButton />
-            <QueryComplaintButton/> -->
+            <MakeComplaintButton v-if="idRatio === 'patient'"/>
+            <QueryComplaintButton v-if="idRatio === 'patient'"/>
+            <QueryAllBillButton v-if="idRatio === 'patient'"/>
+            <QueryUnpaidBillButton v-if="idRatio === 'patient'"/>
+            <PayBillButton v-if="idRatio === 'patient'"/>
         </div>
     </main>
 </template>

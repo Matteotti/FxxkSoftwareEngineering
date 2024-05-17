@@ -8,15 +8,15 @@ axios.defaults.baseURL = "/api"
 
 <template>
   <div>
-    <button @click="makeComplaint">提交投诉</button>
+    <button @click="payBill">缴费</button>
   </div>
 </template>
 
 <script lang="ts">
 export default {
   methods: {
-    makeComplaint() {
-      this.$router.push('home/makeComplaint')
+    payBill() {
+      this.$router.push('home/payBill')
     }
   }
 }

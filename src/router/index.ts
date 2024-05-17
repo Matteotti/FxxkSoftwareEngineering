@@ -7,6 +7,7 @@ import HospitalInfo from '../views/HospitalInfo.vue'
 import QueryComplaintView from "../views/QueryComplaintView.vue"
 import QueryAllBillView from "../views/QueryAllBillView.vue"
 import QueryUnpaidBillView from "../views/QueryUnpaidBillView.vue"
+import PayBill from "../views/PayBill.vue";
 import MedicalInsurance from '../views/MedicalInsurance.vue'
 import MakeComplaint from "../views/MakeComplaintView.vue"
 import ReserveView from '@/views/ReserveView.vue'
@@ -75,6 +76,11 @@ const router = createRouter({
       path: '/home/queryUnpaidBill',
       name: 'queryUnpaidBill',
       component: QueryUnpaidBillView
+    },
+    {
+        path: '/home/payBill',
+        name: 'payBill',
+        component: PayBill
     },
     {
       path: '/home/reserve/reserveDoctors',
