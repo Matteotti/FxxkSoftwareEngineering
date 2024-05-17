@@ -7,6 +7,7 @@ import HospitalInfo from '../views/HospitalInfo.vue'
 import MedicalInsurance from '../views/MedicalInsurance.vue'
 import ReserveView from '@/views/ReserveView.vue'
 import ReserveRecords from '@/views/ReserveRecords.vue'
+import ReserveDoctors from '@/views/ReserveDoctorView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,6 +51,11 @@ const router = createRouter({
       path: '/home/reserveRecords',
       name: 'ReserveRecords',
       component: ReserveRecords
+    },
+    {
+      path: '/home/reserve/reserveDoctors',
+      name: 'reserveDoctors',
+      component: ReserveDoctors
     }
   ]
 })
