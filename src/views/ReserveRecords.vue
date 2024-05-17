@@ -1,42 +1,71 @@
 <script setup lang="ts">
-import BackToHomeButton from '@/components/BackToHomeButton.vue';
-import { onMounted, ref } from 'vue';
-
-import { useRouter } from 'vue-router';
+import { ref, onMounted } from 'vue';
 import axios from 'axios';
-axios.defaults.baseURL = "/api"
+axios.defaults.baseURL = "/api";
 
-onMounted(async () => {
-    let jwtData = window.localStorage.getItem("jwtData");
-    // try {
-    //     const res = await axios.get("/account/balance", {
-    //         headers: {
-    //             'Authorization': `${jwtData}`
-    //         },
-    //         responseType: 'json',
-    //         responseEncoding: 'utf-8'
-    //     });
+interface Reserve {
+    reno: number;
+    pano: number;
+    deno: number;
+    dono: number;
+    time: string;
+    serial: string;
+    state: string;
+}
 
-    //     var code = res.data["code"];
-    //     var message = res.data["message"];
-    //     if (code == 0) {
-    //         balance.value = res.data["data"];  // 更新余额
-    //         alert("查询成功，余额为" + res.data["data"]);
-    //     } else {
-    //         alert("查询失败，错误：" + message);
-    //     }
-    // } catch (err) {
-    //     alert("网络环境故障，请稍后重试" + err);
-    //     console.log(err);
-    // }
-});
+const allRecords = ref<Reserve[]>([]);
+const lastRecord = ref<Reserve | null>(null);
+
+const getRecords = async () => {
+    const jwt = window.localStorage.getItem("jwtData");
+    const allRecordsRes = await axios.get("/registration/findbypano", {
+        headers: {
+            authorization: jwt,
+        },
+    });
+
+    if (allRecordsRes.data.code === 0) {
+        allRecords.value = allRecordsRes.data.data.items;
+    } else {
+        console.error(allRecordsRes.data.message);
+    }
+
+    const lastRecordRes = await axios.get("/registration/findtodaybypano", {
+        headers: {
+            authorization: jwt,
+        },
+    });
+
+    if (lastRecordRes.data.code === 0) {
+        lastRecord.value = lastRecordRes.data.data;
+    } else {
+        console.error(lastRecordRes.data.message);
+    }
+};
+
+onMounted(getRecords);
 </script>
 
 <template>
     <main>
         <div>
-            <br> 已预约记录
-            <BackToHomeButton />
+            <h2>最新挂号记录</h2>
+            <div v-if="lastRecord">
+                <div>科室: {{ lastRecord.deno }}</div>
+                <div>医生: {{ lastRecord.dono }}</div>
+                <div>时间: {{ lastRecord.time }}</div>
+                <div>号次: {{ lastRecord.serial }}</div>
+                <div>状态: {{ lastRecord.state }}</div>
+            </div>
+            <h2>所有挂号记录</h2>
+            <div v-for="record in allRecords" :key="record.reno">
+                <hr />
+                <div>科室: {{ record.deno }}</div>
+                <div>医生: {{ record.dono }}</div>
+                <div>时间: {{ record.time }}</div>
+                <div>号次: {{ record.serial }}</div>
+                <div>状态: {{ record.state }}</div>
+            </div>
         </div>
     </main>
 </template>

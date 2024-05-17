@@ -57,6 +57,7 @@ const login = () => {
         console.log(typeof (code));
         if (code == 0) {
             window.localStorage.setItem("jwtData", res.data["data"]);
+            window.localStorage.setItem("idRatio", id_radio.toString());
             setTimeout(() => window.location.href = "/home", 1000);
         }
         else {

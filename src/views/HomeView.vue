@@ -6,19 +6,26 @@ import MakeComplaintButton from "../components/MakeComplaintButton.vue"
 import MedicalInsuranceButton from '../components/MedicalInsuranceButton.vue';
 import ReserveButton from '@/components/ReserveButton.vue';
 import ReserveRecordButton from '@/components/ReserveRecordButton.vue';
+
+import { ref } from 'vue';
+
+const idRatio = ref(window.localStorage.getItem("idRatio"));
+
 </script>
 
 <template>
     <main>
         <div>
-            主页面
-            <HospitalInfoButton />
-            <MakeComplaintButton />
-            <QueryComplaintButton/>
-            <MedicalInsuranceButton />
-            <UserInfoTable />
-            <ReserveButton />
-            <ReserveRecordButton />
+            {{ idRatio }}主页面
+
+            <HospitalInfoButton v-if="idRatio === 'patient'" />
+            <MedicalInsuranceButton v-if="idRatio === 'patient'" />
+            <UserInfoTable v-if="idRatio === 'patient'" />
+            <ReserveButton v-if="idRatio === 'patient'" />
+            <ReserveRecordButton v-if="idRatio === 'patient'" />
+
+            <!-- <MakeComplaintButton />
+            <QueryComplaintButton/> -->
         </div>
     </main>
 </template>

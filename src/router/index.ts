@@ -11,6 +11,7 @@ import MedicalInsurance from '../views/MedicalInsurance.vue'
 import MakeComplaint from "../views/MakeComplaintView.vue"
 import ReserveView from '@/views/ReserveView.vue'
 import ReserveRecords from '@/views/ReserveRecords.vue'
+import ReserveDoctors from '@/views/ReserveDoctorView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -74,6 +75,11 @@ const router = createRouter({
       path: '/home/queryUnpaidBill',
       name: 'queryUnpaidBill',
       component: QueryUnpaidBillView
+    },
+    {
+      path: '/home/reserve/reserveDoctors',
+      name: 'reserveDoctors',
+      component: ReserveDoctors
     }
   ]
 })

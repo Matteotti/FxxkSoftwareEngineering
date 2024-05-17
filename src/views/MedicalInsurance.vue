@@ -22,13 +22,12 @@ onMounted(async () => {
         var code = res.data["code"];
         var message = res.data["message"];
         if (code == 0) {
-            balance.value = res.data["data"];  // 更新余额
-            alert("查询成功，余额为" + res.data["data"]);
+            balance.value = res.data["data"];
         } else {
             alert("查询失败，错误：" + message);
         }
     } catch (err) {
-        alert("网络环境故障，请稍后重试" + err);
+        alert("网络环境故障，请稍后重试，错误:" + err);
         console.log(err);
     }
 });
