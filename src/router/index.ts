@@ -4,7 +4,9 @@ import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import HomeView from '../views/HomeView.vue'
 import HospitalInfo from '../views/HospitalInfo.vue'
-import QueryComplaint from "../views/QueryComplaintView.vue"
+import QueryComplaintView from "../views/QueryComplaintView.vue"
+import QueryAllBillView from "../views/QueryAllBillView.vue"
+import QueryUnpaidBillView from "../views/QueryUnpaidBillView.vue"
 import MedicalInsurance from '../views/MedicalInsurance.vue'
 import MakeComplaint from "../views/MakeComplaintView.vue"
 import ReserveView from '@/views/ReserveView.vue'
@@ -41,7 +43,7 @@ const router = createRouter({
     {
       path: '/home/queryComplaint',
       name: 'queryComplaint',
-      component: QueryComplaint
+      component: QueryComplaintView
     },
     {
       path: '/home/makeComplaint',
@@ -62,6 +64,16 @@ const router = createRouter({
       path: '/home/reserveRecords',
       name: 'ReserveRecords',
       component: ReserveRecords
+    },
+    {
+      path: '/home/queryAllBill',
+      name: 'queryAllBill',
+      component: QueryAllBillView
+    },
+    {
+      path: '/home/queryUnpaidBill',
+      name: 'queryUnpaidBill',
+      component: QueryUnpaidBillView
     }
   ]
 })

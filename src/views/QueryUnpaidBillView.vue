@@ -6,12 +6,12 @@ import { reactive, ref } from 'vue';
 import { md5 } from 'js-md5';
 import axios from 'axios';
 axios.defaults.baseURL = "/api"
-const complaintResult = ref(null); // 定义一个ref对象用于储存投诉结果
-const queryComplaint = () => {
+const unpaidBillResult = ref(null); // 定义一个ref对象用于储存结果
+const queryUnpaidBill = () => {
     let jwtData = window.localStorage.getItem("jwtData");
     axios({
         method: "get",
-        url: "/complaint/findbypano",
+        url: "/bill/needtopay",
         headers: {
             'Authorization': `${jwtData}`
         },
@@ -24,14 +24,15 @@ const queryComplaint = () => {
             var totalNumber = res.data["data"]["total"];
             var items = res.data["data"]["items"];
 
-            // 把需要的信息储存到complaintResult中
-            complaintResult.value = items.map(item => ({
-                cono: item.cono,
-                pano: item.pano,
-                dono: item.dono,
-                text: item.text,
-                state: item.state,
-                result: item.result,
+            // 把需要的信息储存到Result中
+            unpaidBillResult.value = items.map(item => ({
+                bino: item.bino,
+                type: item.type,
+                name: item.name,
+                num: item.num,
+                describe: item.describe,
+                cost: item.cost,
+                flag: item.flag,
                 time: item.time
             }));
             alert("Success, total = " + totalNumber);
@@ -49,7 +50,7 @@ const queryComplaint = () => {
 <template>
   <main>
     <div>
-      <QueryComplaint /> 投诉结果是nhfjhcjhgcj <br>
+      <QueryUnpaidBill /> all bill是nhfjhcjhgcj <br>
       <!-- 在这里面加 -->
       <BackToHomeButton />
     </div>

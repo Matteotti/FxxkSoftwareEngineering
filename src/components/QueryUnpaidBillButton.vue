@@ -8,16 +8,17 @@ axios.defaults.baseURL = "/api"
 
 <template>
     <div>
-        <button @click="queryComplaint">投诉查询</button>
+        <button @click="queryUnpaidBill">查询未付款账单</button>
     </div>
 </template>
 
 <script lang="ts">
 export default {
     methods: {
-        queryComplaint() {
-            this.$router.push('home/queryComplaint')
+        queryUnpaidBill() {
+            this.$router.push('home/queryUnpaidBill')
         }
     }
 }
 </script>
+
