@@ -36,14 +36,16 @@ const doctorList = ref<Doctor[]>([]);
 const selectedDoctor = ref(null);
 
 const pano = ref(0);
+const denoVal = ref(0);
 
 onMounted(async () => {
     const jwtData = window.localStorage.getItem("jwtData");
     try {
         const res = await axios.post("/department/doctorlist",
-            { deno: 1 },
+            { deno: route.query.department },
             {
                 headers: {
+                    'Content-Type': "application/x-www-form-urlencoded",
                     'Authorization': jwtData
                 },
                 responseType: 'json',
@@ -98,6 +100,7 @@ const reserveCurrent = async () => {
                 },
                 {
                     headers: {
+                        'Content-Type': "application/x-www-form-urlencoded",
                         'Authorization': jwtData
                     },
                     responseType: 'json',
