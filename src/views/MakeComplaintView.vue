@@ -12,6 +12,11 @@ const complaintText = ref('');
 
 const makeComplaint = () => {
   let jwtData = window.localStorage.getItem("jwtData");
+  // if complaint text is null, show error msg
+  if (complaintText.value === '') {
+    alert("投诉内容不能为空");
+    return;
+  }
   axios({
     method: 'post',
     url: '/complaint/submit',

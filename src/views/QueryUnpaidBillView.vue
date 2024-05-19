@@ -30,45 +30,6 @@ const getUnpaidBillRecords = async () => {
         console.error(allUnpaidBillRes.data.message);
     }
 };
-// const unpaidBillResult = ref(null); // 定义一个ref对象用于储存结果
-// const queryUnpaidBill = () => {
-//     let jwtData = window.localStorage.getItem("jwtData");
-//     axios({
-//         method: "get",
-//         url: "/bill/needtopay",
-//         headers: {
-//             'Authorization': `${jwtData}`
-//         },
-//         responseType: 'json',
-//         responseEncoding: 'utf-8'
-//     }).then(res => {
-//         var code = res.data["code"];
-//         var message = res.data["message"];
-//         if (code == 0) {
-//             var totalNumber = res.data["data"]["total"];
-//             var items = res.data["data"]["items"];
-//
-//             // 把需要的信息储存到Result中
-//             unpaidBillResult.value = items.map(item => ({
-//                 bino: item.bino,
-//                 type: item.type,
-//                 name: item.name,
-//                 num: item.num,
-//                 describe: item.describe,
-//                 cost: item.cost,
-//                 flag: item.flag,
-//                 time: item.time
-//             }));
-//             alert("Success, total = " + totalNumber);
-//         } else {
-//             alert("查询失败, 错误:" + message);
-//         }
-//     }, err => {
-//         alert("网络环境故障，请稍后重试" + err);
-//         console.log(err);
-//     });
-//     // return complaintResult;
-// }
 </script>
 
 <template>

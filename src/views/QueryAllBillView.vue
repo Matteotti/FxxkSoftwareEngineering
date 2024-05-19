@@ -19,6 +19,9 @@ interface BillRecord {
 const allBillResult = ref<BillRecord[]>([]);
 const getBillRecords = async () => {
     const jwt = window.localStorage.getItem("jwtData");
+    var recordTime = true;
+    // start timer to record the time consumed
+    const timer = new Date().getTime();
     const allBillRes = await axios.get("/bill/findbypano", {
         headers: {
             authorization: jwt,
@@ -29,6 +32,9 @@ const getBillRecords = async () => {
     } else {
         console.error(allBillRes.data.message);
     }
+    // end timer to record the time consumed: end - start
+    if(recordTime)
+      console.log("Time consumed: ", new Date().getTime() - timer);
 };
 onMounted(getBillRecords);
 </script>

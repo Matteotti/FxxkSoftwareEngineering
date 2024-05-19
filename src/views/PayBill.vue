@@ -5,35 +5,63 @@ import BackToHomeButton from '../components/BackToHomeButton.vue';
 import axios from 'axios';
 import label_input from '../components/LabelInput.vue';
 const billId = ref('');
-const payBill = () => {
+const payBill = async () => {
   let jwtData = window.localStorage.getItem("jwtData");
-  axios({
-    method: 'post',
-    url: '/bill/payment',
-    headers: {
-      'Authorization': `${jwtData}`,
-      'Content-Type': "application/x-www-form-urlencoded"
-    },
-    data: {
-      bino: billId.value,
-      // text: complaintText.value
-    },
-    responseType: 'json',
-    responseEncoding: 'utf-8'
-  }).then(res => {
-      const code = res.data["code"];
-      const message = res.data["message"];
-
-      if (code === 0) {
-        alert("successfully make payment");
-      } else {
-        alert("Fail to make payment with error message = " + message);
+  // first check if the bill has been paid or not
+  // flag == '是' means the bill has been paid
+  // use "/bill/findbypano" to get the bill information
+  try {
+    const res = await axios.get('/bill/findbypano', {
+      headers: {
+        'Authorization': `${jwtData}`,
+        'Content-Type': "application/x-www-form-urlencoded"
       }
-    })
-    .catch(err => {
-      alert("网络环境故障，请稍后重试");
-      console.log(err);
     });
+    const code = res.data["code"];
+    const message = res.data["message"];
+    var billBelongToSelf = false;
+    if (code === 0) {
+      const items = res.data["data"]["items"];
+      for (let i = 0; i < items.length; i++) {
+        if (items[i]["bino"] === Number(billId.value)) {
+          billBelongToSelf = true;
+          if (items[i]["flag"] === "是") {
+            alert("The bill has been paid");
+            return;
+          }
+        }
+      }
+    } else {
+      alert("Fail to get bill information with error message = " + message);
+    }
+    if (!billBelongToSelf) {
+      alert("The bill does not belong to you");
+      return;
+    }
+    const payRes = await axios({
+      method: 'post',
+      url: '/bill/payment',
+      headers: {
+        'Authorization': `${jwtData}`,
+        'Content-Type': "application/x-www-form-urlencoded"
+      },
+      data: {
+        bino: billId.value,
+      },
+      responseType: 'json',
+      responseEncoding: 'utf-8'
+    });
+    const payCode = payRes.data["code"];
+    const payMessage = payRes.data["message"];
+    if (payCode === 0) {
+      alert("successfully make payment");
+    } else {
+      alert("Fail to make payment with error message = " + payMessage);
+    }
+  } catch (err) {
+    alert("网络环境故障，请稍后重试");
+    console.log(err);
+  }
 }
 </script>
 
