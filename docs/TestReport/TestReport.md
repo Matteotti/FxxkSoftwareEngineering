@@ -1,3 +1,5 @@
+
+
 # 软件工程测试报告
 
 <center>3210102485 杨煜卓</center>
@@ -17,9 +19,11 @@
 
 <img src="C:\Users\mrmat\AppData\Roaming\Typora\typora-user-images\image-20240519170621618.png" alt="image-20240519170621618" style="zoom:50%;" />
 
-<img src="C:\Users\mrmat\AppData\Roaming\Typora\typora-user-images\image-20240519170637300.png" alt="image-20240519170637300" style="zoom:50%;" />![image-20240519170650626](C:\Users\mrmat\AppData\Roaming\Typora\typora-user-images\image-20240519170650626.png)
+<img src="C:\Users\mrmat\AppData\Roaming\Typora\typora-user-images\image-20240519170650626.png" alt="image-20240519170650626" style="zoom:50%;" />
 
-<img src="C:\Users\mrmat\AppData\Roaming\Typora\typora-user-images\image-20240519170637300.png" alt="image-20240519170637300" style="zoom:50%;" />![image-20240519170650626](C:\Users\mrmat\AppData\Roaming\Typora\typora-user-images\image-20240519170650626.png)
+<img src="C:\Users\mrmat\AppData\Roaming\Typora\typora-user-images\image-20240519170637300.png" alt="image-20240519170637300" style="zoom:50%;" />
+
+<img src="C:\Users\mrmat\AppData\Roaming\Typora\typora-user-images\image-20240519170650626.png" alt="image-20240519170650626" style="zoom:50%;" />
 
 #### 测试结果
 
@@ -88,7 +92,7 @@
 |    14    |   预约不存在的医生   |   输入不存在的医生信息   | 预约失败 | 预约失败 |   通过   |
 |    15    | 预约医生在非工作时间 | 输入医生信息和非工作时间 | 预约失败 | 预约失败 |   通过   |
 
-<img src="C:\Users\mrmat\AppData\Roaming\Typora\typora-user-images\image-20240519170921421.png" alt="image-20240519170921421" style="zoom:50%;" />![image-20240519170933275](C:\Users\mrmat\AppData\Roaming\Typora\typora-user-images\image-20240519170933275.png)
+<img src="C:\Users\mrmat\AppData\Roaming\Typora\typora-user-images\image-20240519170921421.png" alt="image-20240519170921421" style="zoom:50%;" />
 
 <img src="C:\Users\mrmat\AppData\Roaming\Typora\typora-user-images\image-20240519170933275.png" alt="image-20240519170933275" style="zoom:50%;" />
 
