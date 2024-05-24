@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import BackToHomeButton from '@/components/BackToHomeButton.vue';
 import axios from 'axios';
 axios.defaults.baseURL = "/api";
 
@@ -67,5 +68,6 @@ onMounted(getRecords);
                 <div>状态: {{ record.state }}</div>
             </div>
         </div>
+        <BackToHomeButton />
     </main>
 </template>

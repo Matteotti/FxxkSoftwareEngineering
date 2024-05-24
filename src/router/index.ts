@@ -4,7 +4,12 @@ import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import HomeView from '../views/HomeView.vue'
 import HospitalInfo from '../views/HospitalInfo.vue'
+import QueryComplaintView from "../views/QueryComplaintView.vue"
+import QueryAllBillView from "../views/QueryAllBillView.vue"
+import QueryUnpaidBillView from "../views/QueryUnpaidBillView.vue"
+import PayBill from "../views/PayBill.vue";
 import MedicalInsurance from '../views/MedicalInsurance.vue'
+import MakeComplaint from "../views/MakeComplaintView.vue"
 import ReserveView from '@/views/ReserveView.vue'
 import ReserveRecords from '@/views/ReserveRecords.vue'
 import ReserveDoctors from '@/views/ReserveDoctorView.vue'
@@ -38,6 +43,16 @@ const router = createRouter({
       component: HospitalInfo
     },
     {
+      path: '/home/queryComplaint',
+      name: 'queryComplaint',
+      component: QueryComplaintView
+    },
+    {
+      path: '/home/makeComplaint',
+      name: 'makeComplaint',
+      component: MakeComplaint
+    },
+    {
       path: '/home/medicalInsurance',
       name: 'MedicalInsurance',
       component: MedicalInsurance
@@ -51,6 +66,21 @@ const router = createRouter({
       path: '/home/reserveRecords',
       name: 'ReserveRecords',
       component: ReserveRecords
+    },
+    {
+      path: '/home/queryAllBill',
+      name: 'queryAllBill',
+      component: QueryAllBillView
+    },
+    {
+      path: '/home/queryUnpaidBill',
+      name: 'queryUnpaidBill',
+      component: QueryUnpaidBillView
+    },
+    {
+        path: '/home/payBill',
+        name: 'payBill',
+        component: PayBill
     },
     {
       path: '/home/reserve/reserveDoctors',

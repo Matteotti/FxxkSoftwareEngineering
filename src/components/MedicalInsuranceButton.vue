@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-const router = useRouter();
+// const router = useRouter();
 import label_input from './LabelInput.vue';
 import { reactive, ref } from 'vue';
 import { md5 } from 'js-md5';
