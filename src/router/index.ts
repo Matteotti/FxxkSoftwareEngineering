@@ -4,6 +4,10 @@ import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import HomeView from '../views/HomeView.vue'
 import HospitalInfo from '../views/HospitalInfo.vue'
+import MedicalInsurance from '../views/MedicalInsurance.vue'
+import ReserveView from '@/views/ReserveView.vue'
+import ReserveRecords from '@/views/ReserveRecords.vue'
+import ReserveDoctors from '@/views/ReserveDoctorView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +36,26 @@ const router = createRouter({
       path: '/home/hospitalInfo',
       name: 'HospitalInfo',
       component: HospitalInfo
+    },
+    {
+      path: '/home/medicalInsurance',
+      name: 'MedicalInsurance',
+      component: MedicalInsurance
+    },
+    {
+      path: '/home/reserve',
+      name: 'Reserve',
+      component: ReserveView
+    },
+    {
+      path: '/home/reserveRecords',
+      name: 'ReserveRecords',
+      component: ReserveRecords
+    },
+    {
+      path: '/home/reserve/reserveDoctors',
+      name: 'reserveDoctors',
+      component: ReserveDoctors
     }
   ]
 })

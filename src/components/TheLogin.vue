@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import label_input from './LabelInput.vue';
 import { reactive, ref } from 'vue';
-import {md5} from 'js-md5';
+import { md5 } from 'js-md5';
 import axios from 'axios';
 axios.defaults.baseURL = "/api"
 defineProps({
@@ -15,9 +15,9 @@ const password_input = ref();
 const recaptcha_input = ref();
 var recaptcha_src = "";
 var login_msg = "";
-var login_msg_show = reactive({data:{value:false}});
+var login_msg_show = reactive({ data: { value: false } });
 var timeout = 0;
-var id_radio:String="patient";
+var id_radio: String = "patient";
 const username_component = ref("");
 const password_component = ref("");
 const recaptcha_component = ref("");
@@ -25,20 +25,20 @@ const login = () => {
     var isVerified = true;
     var _account = username_input.value;
     var password = password_input.value;
-    if (_account == null || _account==='') {
+    if (_account == null || _account === '') {
         username_component.value.showLabel(true);
-        isVerified=false;
+        isVerified = false;
     }
     else username_component.value.showLabel(false);
-    if (password == null || password==='') {
+    if (password == null || password === '') {
         password_component.value.showLabel(true);
-        isVerified=false;
+        isVerified = false;
     }
     else password_component.value.showLabel(false);
     if (!isVerified) return;
     axios({
         method: "post",
-        url: "/"+id_radio+"/login",
+        url: "/" + id_radio + "/login",
         headers: {
             'Content-Type': "application/x-www-form-urlencoded"
         },
@@ -54,10 +54,11 @@ const login = () => {
         login_msg_show.data.value = true;
         if (timeout) clearTimeout(timeout);
         timeout = setTimeout(() => login_msg_show.data.value = false, 1000);
-        console.log(typeof(code));
+        console.log(typeof (code));
         if (code == 0) {
             window.localStorage.setItem("jwtData", res.data["data"]);
-            setTimeout(()=>window.location.href="/home",1000);
+            window.localStorage.setItem("idRatio", id_radio.toString());
+            setTimeout(() => window.location.href = "/home", 1000);
         }
         else {
             username_component.value.clearText();
@@ -83,15 +84,15 @@ const login = () => {
         </div>
         <div style="display: flex;margin:0 auto">
             <label>
-                <input type="radio" name="id_radio" v-model="id_radio" value="patient" checked/>
+                <input type="radio" name="id_radio" v-model="id_radio" value="patient" checked />
                 病人
             </label>
             <label>
-                <input type="radio" name="id_radio" v-model="id_radio" value="docter"/>
+                <input type="radio" name="id_radio" v-model="id_radio" value="docter" />
                 医生
             </label>
             <label>
-                <input type="radio" name="id_radio" v-model="id_radio" value="admin"/>
+                <input type="radio" name="id_radio" v-model="id_radio" value="admin" />
                 管理员
             </label>
         </div>
@@ -101,4 +102,3 @@ const login = () => {
         </div>
     </div>
 </template>
-
